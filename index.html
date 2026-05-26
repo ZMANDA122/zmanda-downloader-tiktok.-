@@ -51,6 +51,11 @@
             padding: 20px;
         }
 
+       <div id="openBrowser" style="display:none;padding:15px;background:#222;color:white;text-align:center;border-radius:10px;margin:10px;">
+    ⚠️ التحميل داخل تيك توك قد لا يعمل. <br><br>
+    <button onclick="openExternal()" style="padding: 10px; cursor: pointer; border-radius: 5px;">فتح في المتصفح الخارجي</button>
+</div>
+
         .container {
             width: 100%;
             max-width: 650px;
@@ -439,6 +444,17 @@
     window.addEventListener("load", function() {
         document.getElementById("videoUrl").focus();
     });
+
 </script>
+   <script>
+    const ua = navigator.userAgent.toLowerCase();
+    if (ua.includes("tiktok")) {
+        document.getElementById("openBrowser").style.display = "block";
+    }
+    function openExternal() {
+        window.open(window.location.href, "_blank");
+    }
+</script>
+
 </body>
 </html>
