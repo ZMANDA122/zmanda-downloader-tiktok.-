@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ZMANDA TikTok Downloader | تحميل مباشر بدون علامة مائية</title>
+    
+    <!-- وصف الصفحة لمحركات البحث (مهم جداً) -->
+    <meta name="description" content="حمل فيديوهات تيك توك بدون علامة مائية بجودة عالية وبدون حقوق. أداة ZMANDA تتيح تنزيل مباشر وسريع من TikTok مجاناً. ألصق الرابط واحصل على الفيديو بصيغة MP4.">
+    
+    <!-- كلمات مفتاحية (إشارة إضافية) -->
+    <meta name="keywords" content="تحميل تيك توك, تنزيل فيديو تيك توك بدون علامة مائية, tiktok downloader, تحميل مباشر تيك توك, tiktok no watermark, ztiktok, z manda tiktok, برنامج تنزيل تيك توك, حفظ فيديو تيك توك, tiktok video download">
+    
+    <!-- وسوم Open Graph للمشاركة على السوشيال ميديا -->
+    <meta property="og:title" content="ZMANDA TikTok Downloader | تحميل مباشر بدون علامة مائية">
+    <meta property="og:description" content="حمل فيديوهات تيك توك بجودة HD بدون علامة مائية مجاناً وبضغطة واحدة.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://YOUR_DOMAIN.com">
+    <meta property="og:image" content="https://YOUR_DOMAIN.com/og-image.jpg">
+    <meta property="og:locale" content="ar_AR">
+    
+    <!-- تحديد اللغة الأساسية -->
+    <meta name="language" content="Arabic">
+    
+    <!-- الرابط الأساسي (Canonical) -->
+    <link rel="canonical" href="https://YOUR_DOMAIN.com">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tahoma', 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #000000, #1a1a2e);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 35px;
+            border-radius: 25px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+            font-size: 32px;
+            letter-spacing: 1px;
+        }
+
+        .brand {
+            color: #fe2c55;
+            text-shadow: 0 0 8px rgba(254, 44, 85, 0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .description {
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 25px;
+            font-size: 13px;
+            line-height: 1.8;
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            outline: none;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 2px rgba(254, 44, 85, 0.3);
+        }
+
+        input::placeholder {
+            color: #888;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(45deg, #fe2c55, #ff6b6b);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(254, 44, 85, 0.3);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            color: white;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top: 4px solid #fe2c55;
+            border-radius: 50%;
+            margin: auto;
+            animation: spin 1s linear infinite;
+            margin-bottom: 10px;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .result {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .video-info {
+            color: white;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            word-break: break-word;
+        }
+
+        .video-info p {
+            margin-bottom: 8px;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            text-align: center;
+            background: #25f4ee;
+            border-radius: 12px;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .download-btn:hover {
+            background: #0dccc6;
+            transform: scale(1.02);
+        }
+
+        .error {
+            padding: 15px;
+            background: rgba(255, 0, 0, 0.2);
+            border-radius: 10px;
+            color: #ff9999;
+            text-align: center;
+        }
+
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>
+        <span class="brand">ZMANDA</span> TikTok Downloader
+    </h1>
+    <div class="subtitle">
+        تحميل فيديوهات تيك توك بدون علامة مائية - تحميل مباشر
+    </div>
+    
+    <div class="description">
+        أداة ZMANDA لتحميل فيديوهات تيك توك بدون علامة مائية، سريعة ومجانية. <br>
+        ألصق رابط الفيديو من TikTok، واضغط "معالجة الفيديو" ثم تحميل مباشر بصيغة MP4 بجودة عالية. بدون برامج وبدون تسجيل.
+    </div>
+
+    <input 
+        type="text" 
+        id="videoUrl" 
+        placeholder="https://www.tiktok.com/@user/video/1234567890"
+        dir="ltr"
+    >
+    
+    <button onclick="downloadVideo()">
+        🚀 معالجة الفيديو
+    </button>
+
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        جاري معالجة الفيديو...
+    </div>
+
+    <div class="result" id="result">
+        <!-- ستظهر النتيجة هنا -->
+    </div>
+
+    <div class="footer">
+        <span>⚡ يعمل بـ Tik-Tok-API | تحميل مباشر | جميع الحقوق محفوظة © ZMANDA</span>
+    </div>
+</div>
+
+<script>
+    // عنوان API الذي زودتنا به
+    const API_URL = "https://tik-tok-downloader--youssef122youss.replit.app/api/tiktok/download";
+
+    async function downloadVideo() {
+        const urlInput = document.getElementById("videoUrl");
+        const videoUrl = urlInput.value.trim();
+
+        if (!videoUrl) {
+            showError("⚠️ الرجاء إدخال رابط فيديو تيك توك");
+            return;
+        }
+
+        if (!videoUrl.includes("tiktok.com") && !videoUrl.includes("vm.tiktok") && !videoUrl.includes("vt.tiktok")) {
+            showError("❌ الرابط غير صالح. يرجى إدخال رابط فيديو تيك توك صحيح.");
+            return;
+        }
+
+        const loadingDiv = document.getElementById("loading");
+        const resultDiv = document.getElementById("result");
+        loadingDiv.classList.add("show");
+        resultDiv.classList.remove("show");
+
+        try {
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ url: videoUrl })
+            });
+
+            const data = await response.json();
+
+            if (data.success && data.data && data.data.download) {
+                const downloadData = data.data.download;
+                let downloadUrl = downloadData.no_watermark_hd || downloadData.no_watermark || downloadData.with_watermark;
+                
+                if (downloadUrl) {
+                    const videoTitle = data.data.title || "فيديو تيك توك";
+                    const authorName = data.data.author?.nickname || data.data.author?.username || "مستخدم TikTok";
+                    const authorUsername = data.data.author?.username ? `@${data.data.author.username}` : "";
+                    const duration = data.data.duration ? `${Math.floor(data.data.duration / 60)}:${(data.data.duration % 60).toString().padStart(2, '0')}` : "غير محدد";
+                    
+                    // عرض معلومات الفيديو مع زر التحميل المباشر
+                    showResult(downloadUrl, videoTitle, authorName, authorUsername, duration);
+                } else {
+                    showError("⚠️ تعذر العثور على رابط التحميل. تأكد من صحة الرابط وحاول مرة أخرى.");
+                }
+            } else {
+                const errorMsg = data.error || "حدث خطأ أثناء معالجة الطلب. تأكد من الرابط وحاول مجدداً.";
+                showError(`❌ ${errorMsg}`);
+            }
+        } catch (error) {
+            console.error("خطأ في الاتصال:", error);
+            showError("🚫 حدث خطأ في الاتصال بالخادم. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.");
+        } finally {
+            loadingDiv.classList.remove("show");
+        }
+    }
+
+    function showResult(downloadUrl, title, authorName, authorUsername, duration) {
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = `
+            <div class="video-info">
+                <p><strong>🎬 العنوان:</strong> ${escapeHtml(title)}</p>
+                <p><strong>👤 الناشر:</strong> ${escapeHtml(authorName)} ${authorUsername ? `(${escapeHtml(authorUsername)})` : ''}</p>
+                <p><strong>⏱️ المدة:</strong> ${duration}</p>
+            </div>
+            <button class="download-btn" id="directDownloadBtn">
+                ⬇️ (تحميل الفيديو مباشرة)
+            </button>
+            <div style="margin-top: 12px; font-size: 12px; color: #aaa; text-align: center;">
+                🔒 سيتم التحميل كملف فيديو - جودة عالية HD
+            </div>
+        `;
+        resultDiv.classList.add("show");
+
+        // إضافة حدث النقر على زر التحميل
+        const downloadBtn = document.getElementById("directDownloadBtn");
+        if (downloadBtn) {
+            downloadBtn.addEventListener("click", function() {
+                forceDownload(downloadUrl, `${escapeHtml(title)}.mp4`);
+            });
+        }
+    }
+
+    // دالة إجبار التحميل باستخدام Blob
+    async function forceDownload(url, filename) {
+        try {
+            // عرض مؤشر تحميل صغير في الزر
+            const btn = document.getElementById("directDownloadBtn");
+            const originalText = btn.innerText;
+            btn.innerText = "⏳ جاري التحضير...";
+            btn.disabled = true;
+
+            // جلب الفيديو كـ Blob
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("فشل جلب الفيديو");
+            
+            const blob = await response.blob();
+            const blobUrl = window.URL.createObjectURL(blob);
+            
+            // إنشاء رابط وهمي والضغط عليه
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // تنظيف الرابط بعد ثانية
+            setTimeout(() => {
+                window.URL.revokeObjectURL(blobUrl);
+            }, 1000);
+            
+            // إعادة الزر للحالة الطبيعية
+            btn.innerText = originalText;
+            btn.disabled = false;
+        } catch (err) {
+            console.error("خطأ في التحميل:", err);
+            // خطة احتياطية: فتح الرابط في نافذة جديدة (بعض المتصفحات قد تعرضه)
+            window.open(url, '_blank');
+            alert("تعذر التحميل التلقائي، تم فتح الفيديو في علامة تبويب جديدة. يمكنك حفظه بالضغط بزر الماوس الأيمن.");
+        }
+    }
+
+    function showError(errorMessage) {
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = `<div class="error">${escapeHtml(errorMessage)}</div>`;
+        resultDiv.classList.add("show");
+    }
+
+    function escapeHtml(text) {
+        if (!text) return "غير متوفر";
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    // دعم ضغط Enter
+    document.getElementById("videoUrl").addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+            downloadVideo();
+        }
+    });
+
+    window.addEventListener("load", function() {
+        document.getElementById("videoUrl").focus();
+    });
+</script>
+</body>
+</html>
